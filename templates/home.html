@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aptly</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='./css/style.css')}}" />
+    <style>
+        body {
+            background-image: url('{{url_for('static', filename='./images/bg6.jpg')}}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+        .explore-now-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .glass-btn {
+        background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        border: 2px solid rgba(255, 255, 255, 0.3); /* Light border */
+        color: white; /* Default text color */
+        backdrop-filter: blur(10px); /* Apply blur effect */
+        padding: 20px 40px; /* Larger padding for larger button */
+        border-radius: 8px;
+        font-size: 20px; /* Larger font size */
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3), 
+                    0 4px 12px rgba(0, 0, 0, 0.2); /* White shadow + light black shadow */
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.2); /* Darken the background on hover */
+            transform: scale(1.1); /* Slightly scale up the button */
+            box-shadow: 0 6px 14px rgba(255, 255, 255, 0.5), 
+                        0 6px 14px rgba(0, 0, 0, 0.3); /* Enhanced white shadow on hover */
+        }
+
+        .glass-btn:focus {
+            outline: none; /* Remove outline on focus */
+        }
+
+        .btn-warning {
+            color: white !important; /* Make the text white */
+        }
+
+        .btn-margin {
+            margin-left: 50px; /* Larger margin to create a gap */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand d-flex align-items-center" href="/" target="_blank" style="text-decoration: none;">
+                            <img 
+                                src="{{ url_for('static', filename='./images/38.png') }}" 
+                                alt="Logo" 
+                                style="width: 40px; height: 40px; margin-right: 10px;" 
+                            />
+                            <h1 style="margin: 0;">Apartmently System</h1>
+                        </a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                {% if username %}
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                                    <a
+                                        class="nav-link dropdown-toggle"
+                                        data-toggle="dropdown"
+                                        href="#"
+                                        role="button"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                    ><h6>Profile</h6></a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item"><h6>{{username}}</h6></a>
+                                        <a class="dropdown-item"><h6>{{email1}}</h6></a>
+                                        <a class="dropdown-item" href="{{ url_for('logout') }}"><h6>Logout</h6></a>
+                                    </div>
+                                </li>
+                                {% endif %}
+                                {% if username == "" %}
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="{{ url_for('login') }}"><h6>Login/SignUp</h6></a>
+                                </li>
+                                {% endif %}
+                                {% if username != "" and username != 'admin' %}
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="{{ url_for('dashboard') }}"><h6>Dashboard</h6></a>
+                                </li>
+                                {% endif %}
+                                {% if username == 'admin' %}
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="{{ url_for('admindashboard') }}"><h6>Dashboard</h6></a>
+                                </li>
+                                {% endif %}
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/contactus/"><h6>Contact Us</h6></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explore Now Section -->
+    <div class="explore-now-container">
+        <button
+            onclick="window.location.href='/search/'"
+            class="btn btn-warning btn-lg glass-btn"
+        >
+            Explore Now
+        </button>
+    
+        <button
+            onclick="window.location.href='subscription.html'"
+            class="btn btn-warning btn-lg glass-btn btn-margin"
+        >
+            Go Premium Now
+        </button>
+    </div>
+    
+
+    <script src="{{url_for('static', filename='./js/script.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

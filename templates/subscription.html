@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Plans - Apartment Host</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-header {
+            background-color: #fff536;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            padding: 20px;
+        }
+        .card-body {
+            background: white;
+            padding: 20px;
+        }
+        .card-body ul {
+            text-align: left;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .card-body ul li {
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 30px;
+            color: #333;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .btn-buy {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .btn-buy:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Choose Your Premium Plan</h1>
+        <p>Select the best plan to unlock all the exclusive features for your apartment listings.</p>
+        
+        <div class="row">
+            <!-- 1-3 Months Plan -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        1 - 3 Months
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fa fa-check"></i> Priority listing visibility</li>
+                            <li><i class="fa fa-check"></i> Access to basic analytics</li>
+                            <li><i class="fa fa-check"></i> Unlimited listings</li>
+                        </ul>
+                        <div class="price">₱3,000</div>
+                        <button class="btn-buy" onclick="window.location.href='/premium/1-3-months'">
+                            Subscribe Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-6 Months Plan -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        3 - 6 Months
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fa fa-check"></i> Priority listing visibility</li>
+                            <li><i class="fa fa-check"></i> Access to advanced analytics</li>
+                            <li><i class="fa fa-check"></i> Unlimited listings</li>
+                            <li><i class="fa fa-check"></i> Email marketing tools</li>
+                        </ul>
+                        <div class="price">₱5,000</div>
+                        <button class="btn-buy" onclick="window.location.href='/premium/3-6-months'">
+                            Subscribe Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1 Year Plan -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        1 Year
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fa fa-check"></i> Priority listing visibility</li>
+                            <li><i class="fa fa-check"></i> Access to premium analytics</li>
+                            <li><i class="fa fa-check"></i> Unlimited listings</li>
+                            <li><i class="fa fa-check"></i> Exclusive marketing tools</li>
+                            <li><i class="fa fa-check"></i> Premium customer support</li>
+                        </ul>
+                        <div class="price">₱9,000</div>
+                        <button class="btn-buy" onclick="window.location.href='/premium/1-year'">
+                            Subscribe Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lifetime Plan -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        Lifetime
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fa fa-check"></i> Priority listing visibility</li>
+                            <li><i class="fa fa-check"></i> Full access to all analytics</li>
+                            <li><i class="fa fa-check"></i> Unlimited listings</li>
+                            <li><i class="fa fa-check"></i> All marketing tools</li>
+                            <li><i class="fa fa-check"></i> Premium customer support</li>
+                            <li><i class="fa fa-check"></i> Lifetime updates</li>
+                        </ul>
+                        <div class="price">₱15,000</div>
+                        <button class="btn-buy" onclick="window.location.href='/premium/lifetime'">
+                            Subscribe Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
